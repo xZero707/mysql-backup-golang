@@ -625,7 +625,7 @@ func BackupRotation(options Options) {
 					} else {
 						// removing old backups
 						if days > options.MonthlyRotation*30 {
-							err = os.Remove(path.Dir(p))
+							err = os.RemoveAll(path.Dir(p))
 							if err != nil {
 								fmt.Println(err)
 							}
@@ -662,7 +662,7 @@ func BackupRotation(options Options) {
 					} else {
 						// removing old backups
 						if days > options.WeeklyRotation*7 {
-							err = os.Remove(path.Dir(p))
+							err = os.RemoveAll(path.Dir(p))
 							if err != nil {
 								fmt.Println(err)
 							}
@@ -696,7 +696,7 @@ func BackupRotation(options Options) {
 				} else {
 					// removing old backups
 					if days > options.DailyRotation {
-						err = os.Remove(path.Dir(p))
+						err = os.RemoveAll(path.Dir(p))
 						if err != nil {
 							fmt.Println(err)
 						}
